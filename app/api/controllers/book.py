@@ -20,6 +20,7 @@ async def new_book(book: schems.Book):
 async def edit_book(book: schems.EditBook):
     ...
 
+
 # /path/params
 # query?param=ewjfsd
 @router.delete(path="/delete")
