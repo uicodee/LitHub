@@ -12,8 +12,8 @@ class Book(BaseModel):
     __tablename__ = "book"
 
     title: Mapped[str] = mapped_column(String)
-    author: Mapped[str] = mapped_column(String)
-    genre: Mapped[str] = mapped_column(String)
+    # author: Mapped[str] = mapped_column(String)
+    # genre: Mapped[str] = mapped_column(String)
     description: Mapped[str] = mapped_column(String)
     year: Mapped[int] = mapped_column(Integer)
     price: Mapped[float] = mapped_column(Float)

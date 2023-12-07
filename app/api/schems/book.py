@@ -14,8 +14,8 @@ class Author(BaseModel):
 class Book(BaseModel):
 
     title: str = Field(min_length=2)
-    author: list[Author] = Field(min_items=1)
-    genre: list[Genre] = Field(min_items=1)
+    # author: list[Author] = Field(min_items=1)
+    # genre: list[Genre] = Field(min_items=1)
     description: str
     year: int
     price: float
@@ -23,4 +23,4 @@ class Book(BaseModel):
 
 class EditBook(Book):
 
-    book_id: int = Field(alias="bookId", gt=1)
+    book_id: int = Field(alias="bookId", gt=0)

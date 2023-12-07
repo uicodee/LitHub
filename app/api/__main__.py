@@ -13,7 +13,7 @@ def main() -> FastAPI:
         docs_url="/docs",
         version="1.0.0"
     )
-    # pool = create_pool(url=make_connection_string(settings=settings))
+    pool = create_pool(url=make_connection_string(settings=settings))
     # Cross Origin Resource Sharing
     app.add_middleware(
         CORSMiddleware,
@@ -22,7 +22,7 @@ def main() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    # dependencies.setup(app, pool, settings)
+    dependencies.setup(app, pool, settings)
     controllers.setup(app)
     return app
 
