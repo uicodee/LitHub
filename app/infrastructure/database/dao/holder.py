@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.infrastructure.database.dao.rdb import BaseDAO, UserDAO, BookDAO
+from app.infrastructure.database.dao.rdb import BaseDAO, UserDAO, BookDAO, AuthorDAO
 
 
 class HolderDao:
@@ -9,3 +9,4 @@ class HolderDao:
         self.base = BaseDAO
         self.user = UserDAO(self.session)
         self.book = BookDAO(self.session)
+        self.author = AuthorDAO(self.session)
