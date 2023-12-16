@@ -1,4 +1,4 @@
-from sqlalchemy import String, Integer, Float
+from sqlalchemy import String, Integer, Float, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.infrastructure.database.models import BaseModel
@@ -17,3 +17,5 @@ class Book(BaseModel):
     description: Mapped[str] = mapped_column(String)
     year: Mapped[int] = mapped_column(Integer)
     price: Mapped[float] = mapped_column(Float)
+    genre_id: Mapped[int] = mapped_column(ForeignKey("genre.id", ondelete="CASCADE"))
+    author_id: Mapped[int] = mapped_column(ForeignKey("author.id", ondelete="CASCADE"))
