@@ -20,3 +20,5 @@ class Book(Base):
     description: str
     year: int
     price: float
+    author_id: int = Field(alias="authorId")
+    genre_id: int = Field(alias="genreId")
