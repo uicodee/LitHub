@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Query, Depends, Path, HTTPException, status
+from fastapi import APIRouter, Query, Depends, Path, HTTPException, status, UploadFile
 
 from app import dto
 from app.api import schems
@@ -35,6 +35,11 @@ async def new_book(
         dao: HolderDao = Depends(dao_provider)
 ) -> dto.Book:
     return await dao.book.add_book(book=book)
+
+
+@router.post(path="/upload-book")
+async def upload_book(file: list[UploadFile]):
+    return {"filename": "files"}
 
 
 @router.put(path="/edit")
