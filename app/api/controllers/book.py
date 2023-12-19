@@ -1,3 +1,6 @@
+import shutil
+import uuid
+
 from fastapi import APIRouter, Query, Depends, Path, HTTPException, status, UploadFile
 
 from app import dto
@@ -38,8 +41,15 @@ async def new_book(
 
 
 @router.post(path="/upload-book")
-async def upload_book(file: list[UploadFile]):
-    return {"filename": "files"}
+async def upload_book(
+        file: UploadFile,
+        dao: HolderDao = Depends(dao_provider)
+):
+    file_parts = file.filename.split(".")
+    file_path = "app/api/media/" + uuid.uuid4().hex + "." + file_parts[-1]
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+        return await dao.file.add_file(path=file_path)
 
 
 @router.put(path="/edit")

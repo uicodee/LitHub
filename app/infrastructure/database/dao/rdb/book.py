@@ -20,7 +20,8 @@ class BookDAO(BaseDAO[Book]):
                 year=book.year,
                 price=book.price,
                 author_id=book.author_id,
-                genre_id=book.genre_id
+                genre_id=book.genre_id,
+                file_id=book.file_id
             ).returning(
                 Book
             )

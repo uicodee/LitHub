@@ -3,3 +3,4 @@ from .user import UserDAO
 from .book import BookDAO
 from .author import AuthorDAO
 from .genre import GenreDAO
+from .file import FileDAO

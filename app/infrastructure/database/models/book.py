@@ -19,3 +19,4 @@ class Book(BaseModel):
     price: Mapped[float] = mapped_column(Float)
     genre_id: Mapped[int] = mapped_column(ForeignKey("genre.id", ondelete="CASCADE"))
     author_id: Mapped[int] = mapped_column(ForeignKey("author.id", ondelete="CASCADE"))
+    file_id: Mapped[int] = mapped_column(ForeignKey("file.id", ondelete="CASCADE"))

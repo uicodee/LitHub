@@ -21,6 +21,7 @@ class Book(BaseModel):
     price: float
     author_id: int = Field(alias="authorId")
     genre_id: int = Field(alias="genreId")
+    file_id: int = Field(alias="fileId")
 
 
 class EditBook(Book):
